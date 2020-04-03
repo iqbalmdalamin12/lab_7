@@ -1,132 +1,17 @@
 <html>
 <head>
 
-	<title></title>
+	<title>Map</title>
 	<meta charset="utf-8" / >
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+	
 
-   <style type="text/css">
-   	#mapid{
-   		height: 500px;
-   		width:60%;
-   		margin:auto;
-   		border-radius:12px;
-   		
-   	}
-
-   	.custom-popup .leaflet-popup-content-wrapper{
-   		  background: red;
-		  color: white;
-		  font-size: 14px;
-		  line-height: 24px;
-		  border-radius: 5px;
-		  box-shadow: 2px 1px 1px #ccc;
-   		
-   	}
-   	
-	.custom-popup .leaflet-popup-tip-container {
-	  	width: 60px;
-	  	height: 20px;
-	}
-	.custom-popup .leaflet-popup-tip {
-	  	background: none;
-	  	border: none;
-	  
-	}
-   </style>
 </head>
 <body>
 	<div id ="mapid"></div>
 
-	<script>
-		var mymap = L.map('mapid').setView([38.9860, -76.9451], 15);
-
-		L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=dBEFDEUowEMZFsV2U83h', {
-		    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-		    maxZoom: 18,
-		    id: 'mapbox/streets-v11',
-		    tileSize: 512,
-		    zoomOffset: -1,
-		    accessToken: 'your.mapbox.access.token'
-		    
-		}).addTo(mymap);
-
-		
-		
-		var popupContent = "McKeldin Library";
-		var popupOptions =
-		    {
-		      
-		      'className' : 'custom-popup' // classname for another popup
-		    }
-			    
-		    var marker = L.marker([38.9860, -76.9451]).addTo(mymap)
-		    	.bindPopup(popupContent, popupOptions);
- 
-
-		var geoLocation = [{
-			"type": "Feature",
-			"properties": {
-			    "name": "FOOD INSPECTION",
-			    "popupContent": "This is where the Rockies play!"
-			},
-			"geometry": {
-			    "type": "Point",
-			    "coordinates":
-			    [-76.958574,38.966903]
-			    
-			     
-			    
-			}
-		},{
-			"type": "Feature",
-			"properties": {
-			    "name": "FOOD INSPECTION",
-			    "popupContent": "sds"
-			},
-			"geometry": {
-			    "type": "Point",
-			    "coordinates":
-			    [-76.872392,38.685163]
-			    
-			     
-			    
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-			    "name": "FOOD INSPECTION",
-			    "popupContent": "sds"
-			},
-			"geometry": {
-			    "type": "Point",
-			    "coordinates":
-			    [-76.868849,38.931458]
-			    
-			     
-			    
-			}
-		}
-		];
-
-		var markerOption = {
-		    radius: 5,
-		    fillColor: "red",
-		    color: "#000",
-		    weight: 1,
-		    opacity: 1,
-		    fillOpacity: 0.8,
-		    backgroundColor:"red"
-		};
-
-		L.geoJSON(geoLocation, {
-		    pointToLayer: function (feature, latlng) {
-		        return L.marker(latlng, markerOption);
-		    }
-		}).addTo(mymap);
-		 
-	</script>
+	<script type="text/javascript" src="leaflet.js"></script>
 </body>
 </html>
